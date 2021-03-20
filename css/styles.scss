@@ -1,0 +1,148 @@
+$dark-blue-color: hsl(227, 35%, 25%);
+$grayish-blue-color: hsl(225, 20%, 60%);
+$white-color: hsl(0, 0%, 100%);
+$soft-cyan-color: hsl(174, 77%, 80%);
+$strong-cyan-color: hsl(174, 86%, 45%);
+$light-grayish-red-color: hsl(14, 92%, 95%);
+$light-red-color: hsl(15, 100%, 70%);
+$pale-blue-color: hsl(226, 100%, 87%);
+$light-grayish-blue-color: hsl(223, 50%, 87%);
+
+@mixin background($color, $image, $position) {
+  background-color: $color;
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-position: $position;
+}
+
+@mixin font($color, $weight, $size) {
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+}
+
+@mixin dynamic-element($color, $shadow, $cursor) {
+  background-color: $color;
+  border-color: $color;
+  box-shadow: $shadow;
+  cursor: $cursor;
+  outline: none;
+}
+
+@mixin relative-position($width, $height, $property, $value) {
+  position: relative;
+  width: $width;
+  height: $height;
+  @if ($property == top or $property == bottom) {
+    $top-value: if($property == bottom, initial, $value);
+    $bottom-value: if($property == bottom, $value, initial);
+    top: $top-value;
+    bottom: $bottom-value;
+  } @else {
+    @error "Property #{$property} must be either top or bottom";
+  }
+}
+
+@mixin rounded-element($background-color, $color) {
+  background-color: $background-color;
+  border-radius: 40px;
+  color: $color
+}
+
+body {
+  @include background(transparent, "../images/bg-pattern.svg", top);
+
+  background-size: 100%;
+  font-family: "Manrope";
+
+  @media (max-width: 1200px) {
+    background-size: auto;
+  }
+}
+
+h1 {
+  @include font($dark-blue-color, 800, 2.5rem);
+}
+
+p, span {
+  @include font($grayish-blue-color, 600, 15px);
+}
+
+.jumbotron {
+  @include background(transparent, "../images/pattern-circles.svg", center);
+}
+
+.card {
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  .pageview {
+    letter-spacing: 3px;
+  }
+
+  .form-range {
+    &::-webkit-slider-runnable-track {
+      background: $soft-cyan-color;
+    }
+
+    &::-webkit-slider-thumb {
+      @include background($strong-cyan-color, "../images/icon-slider.svg", center);
+      @include dynamic-element($strong-cyan-color, 0 10px 10px 0 $strong-cyan-color, auto);
+      @include relative-position(30px, 30px, bottom, 7px);
+
+      &:hover {
+        @include dynamic-element($soft-cyan-color, 0 10px 10px 0 $soft-cyan-color, pointer);
+      }
+
+      &:active {
+        @include dynamic-element($strong-cyan-color, 0 10px 10px 0 $strong-cyan-color, grabbing);
+      }
+    }
+  }
+
+  .form-check-input {
+    @include dynamic-element($light-grayish-blue-color, none, auto);
+    @include relative-position(40px, 20px, top, 7px);
+
+    &:hover {
+      @include dynamic-element($soft-cyan-color, none, pointer);
+    }
+
+    &:checked {
+      @include dynamic-element($light-grayish-blue-color, none, auto);
+
+      &:hover {
+        @include dynamic-element($soft-cyan-color, none, pointer);
+      }
+    }
+  }
+
+  .badge {
+    @include rounded-element($light-grayish-red-color,$light-red-color);
+    font-size: 12px;
+  }
+
+  .card-footer {
+    background-color: $white-color;
+
+    .btn {
+      @include rounded-element($dark-blue-color, $pale-blue-color);
+
+      &:hover {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}

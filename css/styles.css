@@ -1,0 +1,137 @@
+body {
+  background-color: transparent;
+  background-image: url("../images/bg-pattern.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  font-family: "Manrope";
+}
+@media (max-width: 1200px) {
+  body {
+    background-size: auto;
+  }
+}
+
+h1 {
+  color: #293356;
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+p, span {
+  color: #858fad;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.jumbotron {
+  background-color: transparent;
+  background-image: url("../images/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+}
+.card .pageview {
+  letter-spacing: 3px;
+}
+.card .form-range::-webkit-slider-runnable-track {
+  background: #a5f3eb;
+}
+.card .form-range::-webkit-slider-thumb {
+  background-color: #10d5c2;
+  background-image: url("../images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #10d5c2;
+  border-color: #10d5c2;
+  box-shadow: 0 10px 10px 0 #10d5c2;
+  cursor: auto;
+  outline: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: initial;
+  bottom: 7px;
+}
+.card .form-range::-webkit-slider-thumb:hover {
+  background-color: #a5f3eb;
+  border-color: #a5f3eb;
+  box-shadow: 0 10px 10px 0 #a5f3eb;
+  cursor: pointer;
+  outline: none;
+}
+.card .form-range::-webkit-slider-thumb:active {
+  background-color: #10d5c2;
+  border-color: #10d5c2;
+  box-shadow: 0 10px 10px 0 #10d5c2;
+  cursor: grabbing;
+  outline: none;
+}
+.card .form-check-input {
+  background-color: #cdd7ee;
+  border-color: #cdd7ee;
+  box-shadow: none;
+  cursor: auto;
+  outline: none;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  top: 7px;
+  bottom: initial;
+}
+.card .form-check-input:hover {
+  background-color: #a5f3eb;
+  border-color: #a5f3eb;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+}
+.card .form-check-input:checked {
+  background-color: #cdd7ee;
+  border-color: #cdd7ee;
+  box-shadow: none;
+  cursor: auto;
+  outline: none;
+}
+.card .form-check-input:checked:hover {
+  background-color: #a5f3eb;
+  border-color: #a5f3eb;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+}
+.card .badge {
+  background-color: #feece7;
+  border-radius: 40px;
+  color: #ff8c66;
+  font-size: 12px;
+}
+.card .card-footer {
+  background-color: white;
+}
+.card .card-footer .btn {
+  background-color: #293356;
+  border-radius: 40px;
+  color: #bdccff;
+}
+.card .card-footer .btn:hover {
+  color: white;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: #3e52a3;
+}
+
+/*# sourceMappingURL=styles.css.map */
